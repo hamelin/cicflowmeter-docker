@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 
 RUN apt-get update -y && apt-get upgrade -y
-RUN apt-get install -y gradle maven git
+RUN apt-get install -y gradle maven git libpcap-dev
 
 RUN git clone https://github.com/CanadianInstituteForCybersecurity/CICFlowMeter /code
 RUN cd /code/jnetpcap/linux/jnetpcap-1.4.r1425 && \
