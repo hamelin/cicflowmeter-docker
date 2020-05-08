@@ -1,0 +1,11 @@
+task runcmd(type: JavaExec){
+    main = "cic.cs.unb.ca.ifm.Cmd"
+    classpath = sourceSets.main.runtimeClasspath
+    String osName = System.getProperty('os.name').toLowerCase()
+    if(osName.contains('windows')){
+        jvmArgs '-Djava.library.path=jnetpcap/win/jnetpcap-1.4.r1425'
+    }else{
+        jvmArgs '-Djava.library.path=jnetpcap/linux/jnetpcap-1.4.r1425'
+    }
+    args(cmdargs.split(":"))
+}
